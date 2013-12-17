@@ -1,0 +1,95 @@
+Bootstrapping Chef on localhost
+localhost Starting Chef Client, version 11.8.2[0m
+localhost resolving cookbooks for run list: ["apt", "aliases", "apache2"][0m
+localhost Synchronizing Cookbooks:[0m
+localhost   - apt[0m
+localhost   - aliases[0m
+localhost   - magic_shell[0m
+localhost   - apache2[0m
+localhost Compiling Cookbooks...[0m
+localhost [2013-12-17T04:23:05+00:00] WARN: Cloning resource attributes for service[apache2] from prior resource (CHEF-3694)
+localhost [2013-12-17T04:23:05+00:00] WARN: Previous service[apache2]: /var/chef/cache/cookbooks/apache2/recipes/default.rb:24:in `from_file'
+localhost [2013-12-17T04:23:05+00:00] WARN: Current  service[apache2]: /var/chef/cache/cookbooks/apache2/recipes/default.rb:210:in `from_file'
+localhost Converging 45 resources[0m
+localhost Recipe: apt::default[0m
+localhost   * execute[apt-get-update] action run[0m (skipped due to not_if)[0m
+localhost   * execute[apt-get update] action nothing[0m (skipped due to action :nothing)[0m
+localhost   * execute[apt-get autoremove] action nothing[0m (skipped due to action :nothing)[0m
+localhost   * execute[apt-get autoclean] action nothing[0m (skipped due to action :nothing)[0m
+localhost   * package[update-notifier-common] action install[0m (up to date)[0m
+localhost   * execute[apt-get-update-periodic] action run[0m (skipped due to only_if)[0m
+localhost   * directory[/var/cache/local] action create[0m (up to date)[0m
+localhost   * directory[/var/cache/local/preseeding] action create[0m (up to date)[0m
+localhost Recipe: aliases::default[0m
+localhost   * magic_shell_alias[h] action add[0mRecipe: <Dynamically Defined Resource>[0m
+localhost   * file[/etc/profile.d/h.sh] action create[0m (up to date)[0m
+localhost  (up to date)[0m
+localhost   * file[/etc/profile.d/h.sh] action nothing[0m (skipped due to action :nothing)[0m
+localhost Recipe: aliases::default[0m
+localhost   * magic_shell_alias[sites] action add[0mRecipe: <Dynamically Defined Resource>[0m
+localhost   * file[/etc/profile.d/sites.sh] action create[0m (up to date)[0m
+localhost  (up to date)[0m
+localhost   * file[/etc/profile.d/sites.sh] action nothing[0m (skipped due to action :nothing)[0m
+localhost Recipe: aliases::default[0m
+localhost   * magic_shell_environment[EDITOR] action add[0mRecipe: <Dynamically Defined Resource>[0m
+localhost   * file[/etc/profile.d/EDITOR.sh] action create[0m (up to date)[0m
+localhost  (up to date)[0m
+localhost   * file[/etc/profile.d/EDITOR.sh] action nothing[0m (skipped due to action :nothing)[0m
+localhost Recipe: apache2::default[0m
+localhost   * package[apache2] action install[0m (up to date)[0m
+localhost   * service[apache2] action enable[0m[32m
+localhost     - enable service service[apache2][0m
+localhost [0m
+localhost   * directory[/etc/apache2/ssl] action create[0m (up to date)[0m
+localhost   * directory[/etc/apache2/conf.d] action create[0m (up to date)[0m
+localhost   * directory[/var/cache/apache2] action create[0m (up to date)[0m
+localhost   * template[/etc/sysconfig/httpd] action create[0m (skipped due to only_if)[0m
+localhost   * template[apache2.conf] action create[0m (up to date)[0m
+localhost   * template[apache2-conf-security] action create[0m (up to date)[0m
+localhost   * template[apache2-conf-charset] action create[0m (up to date)[0m
+localhost   * template[/etc/apache2/ports.conf] action create[0m (up to date)[0m
+localhost   * template[/etc/apache2/sites-available/default] action create[0m (up to date)[0m
+localhost Recipe: apache2::mod_status[0m
+localhost   * template[/etc/apache2/mods-available/status.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod status] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_alias[0m
+localhost   * template[/etc/apache2/mods-available/alias.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod alias] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_auth_basic[0m
+localhost   * execute[a2enmod auth_basic] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_authn_file[0m
+localhost   * execute[a2enmod authn_file] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_authz_default[0m
+localhost   * execute[a2enmod authz_default] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_authz_groupfile[0m
+localhost   * execute[a2enmod authz_groupfile] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_authz_host[0m
+localhost   * execute[a2enmod authz_host] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_authz_user[0m
+localhost   * execute[a2enmod authz_user] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_autoindex[0m
+localhost   * template[/etc/apache2/mods-available/autoindex.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod autoindex] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_dir[0m
+localhost   * template[/etc/apache2/mods-available/dir.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod dir] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_env[0m
+localhost   * execute[a2enmod env] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_mime[0m
+localhost   * template[/etc/apache2/mods-available/mime.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod mime] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_negotiation[0m
+localhost   * template[/etc/apache2/mods-available/negotiation.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod negotiation] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::mod_setenvif[0m
+localhost   * template[/etc/apache2/mods-available/setenvif.conf] action create[0m (up to date)[0m
+localhost   * execute[a2enmod setenvif] action run[0m (skipped due to not_if)[0m
+localhost Recipe: apache2::default[0m
+localhost   * execute[a2dissite default] action run[0m (skipped due to only_if)[0m
+localhost   * service[apache2] action start[0m (up to date)[0m
+localhost [2013-12-17T04:23:06+00:00] ERROR: Running exception handlers
+localhost [2013-12-17T04:23:06+00:00] ERROR: Exception handlers complete
+localhost [2013-12-17T04:23:06+00:00] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
+localhost Chef Client failed. 1 resources updated[0m
+localhost [2013-12-17T04:23:07+00:00] ERROR: 403 "Forbidden"
+localhost [2013-12-17T04:23:07+00:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
